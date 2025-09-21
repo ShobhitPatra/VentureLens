@@ -4,7 +4,7 @@ import { TypingAnimation } from "./ui/typing-animation";
 const Navbar = () => {
   return (
     <nav
-      className="flex w-full items-center bg-neutral-950 text-gray-200 font-light shadow-sm px-64  font-mono border-b-1
+      className="flex w-full items-center  text-primary font-medium shadow-sm md:px-64  font-mono border-b-1
       bg-clip-padding
       backdrop-filter
       backdrop-blur-xl
@@ -32,7 +32,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-gray-950 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content  rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
               <a>Item 1</a>
@@ -54,7 +54,7 @@ const Navbar = () => {
           </ul>
         </div>
         <a>
-          <TypingAnimation className="text-xl capitalize font-medium   ">
+          <TypingAnimation className="md:text-xl text-sm capitalize font-medium   ">
             VENTURE LENS
           </TypingAnimation>
         </a>

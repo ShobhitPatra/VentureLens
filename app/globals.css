@@ -48,14 +48,26 @@
   --color-color-2: var(--color-2);
   --color-color-1: var(--color-1);
   @keyframes rainbow {
-  0% {
-    background-position: 0%;
+    0% {
+      background-position: 0%;
     }
-  100% {
-    background-position: 200%;
+    100% {
+      background-position: 200%;
     }
   }
-}
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite
+;
+  @keyframes marquee {
+  from {
+    transform: translateX(0);}
+  to {
+    transform: translateX(calc(-100% - var(--gap)));}}
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);}
+  to {
+    transform: translateY(calc(-100% - var(--gap)));}}}
 
 :root {
   --radius: 0.625rem;
