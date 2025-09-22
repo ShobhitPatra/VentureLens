@@ -87,7 +87,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <a>
-          <RainbowButton className="text-xs font-light">
+          <RainbowButton className="text-xs font-light ">
             Get Started
           </RainbowButton>
         </a>
