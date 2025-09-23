@@ -4,6 +4,7 @@ import { ShinyButton } from "../ui/shiny-button";
 import MarqueeList from "./Marquee";
 import { MoveRight } from "lucide-react";
 import { AnimatedShinyText } from "../ui/animated-shiny-text";
+import { TextAnimate } from "../ui/text-animate";
 
 const Hero = () => {
   const [url, setUrl] = useState<string>("https://example.com/");
@@ -65,11 +66,26 @@ const Hero = () => {
     }
   };
   return (
-    <div className=" font-mono flex flex-col items-center justify-center  md:px-64 pt-16 gap-8">
+    <div className="font-mono flex flex-col items-center justify-center pt-16 gap-8 md:px-64">
       <div className="text-center">
-        <h1 className="md:text-6xl text-2xl font-bold l">
-          Venture<span className="text-orange-500">Lens</span>
-        </h1>
+        <div className="flex">
+          <TextAnimate
+            animation="blurInUp"
+            by="character"
+            once
+            className="md:text-6xl text-3xl font-bold "
+          >
+            Venture
+          </TextAnimate>
+          <TextAnimate
+            animation="blurInUp"
+            by="character"
+            once
+            className="md:text-6xl text-3xl font-bold text-orange-500"
+          >
+            Lens
+          </TextAnimate>
+        </div>
         <AnimatedShinyText className="md:text-2xl text-xl text-gray-400">
           See Startups Clearly
         </AnimatedShinyText>

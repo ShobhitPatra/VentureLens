@@ -3,7 +3,7 @@ import MarqueeItem from "./MarqueeItem";
 
 const MarqueeList = () => {
   return (
-    <Marquee className="md:w-[1000px]">
+    <Marquee className="md:w-[1000px] w-96">
       <MarqueeItem heading="Better-Auth" />
       <MarqueeItem heading="Convex" />
       <MarqueeItem heading="Firecrawl" />
