@@ -18,7 +18,7 @@ export async function GET(req: Request) {
     const data = await res.json();
     return NextResponse.json({
       status: data.status,
-      document: data.data || [],
+      document: data.data ?? [],
     });
   } catch (error) {
     console.log(`ERROR IN api/crawl-satus/ POST ROUTE  ,error :${error}`);

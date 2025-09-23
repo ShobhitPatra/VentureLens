@@ -3,9 +3,10 @@ import { useState } from "react";
 import { ShinyButton } from "../ui/shiny-button";
 import MarqueeList from "./Marquee";
 import { MoveRight } from "lucide-react";
+import { AnimatedShinyText } from "../ui/animated-shiny-text";
 
 const Hero = () => {
-  const [url, setUrl] = useState<string>("");
+  const [url, setUrl] = useState<string>("https://example.com/");
   const pollCrawl = async (crawl_id: string) => {
     try {
       let completed = false;
@@ -14,10 +15,26 @@ const Hero = () => {
         const statusData = await crawl.json();
         if (statusData.status === "completed") {
           completed = true;
-          return statusData.documents;
+          return statusData.document[0];
         }
         await new Promise((r) => setTimeout(r, 2000));
       }
+    } catch (error) {
+      console.error(`CLIENT: ERROR POLLiNG`, error);
+    }
+  };
+  const analyzeContent = async (markdownContent: string) => {
+    try {
+      const llmResponse = await fetch(`/api/analyze/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          crawlData: markdownContent,
+        }),
+      });
+      const llmData = await llmResponse.json();
     } catch (error) {
       console.error(`CLIENT: ERROR POLLiNG`, error);
     }
@@ -40,8 +57,9 @@ const Hero = () => {
       if (!data.crawl_id) {
         throw new Error("CRAWL_ID DID NOT REACHED THE CLIENT ");
       }
-      const documents = await pollCrawl(data.crawl_id);
-      console.log(documents);
+      const markdownContent = await pollCrawl(data.crawl_id);
+      const analyzedData = await analyzeContent(markdownContent);
+      console.log(analyzeContent);
     } catch (error) {
       console.error(`CLIENT: ERROR EVALUATING SITE URL`, error);
     }
@@ -52,9 +70,9 @@ const Hero = () => {
         <h1 className="md:text-6xl text-2xl font-bold l">
           Venture<span className="text-orange-500">Lens</span>
         </h1>
-        <h3 className="md:text-2xl text-xl text-gray-400">
+        <AnimatedShinyText className="md:text-2xl text-xl text-gray-400">
           See Startups Clearly
-        </h3>
+        </AnimatedShinyText>
       </div>
       {/* input  */}
       <div className="flex flex-wrap  justify-center gap-2">
@@ -84,7 +102,7 @@ const Hero = () => {
           </span>
         </ShinyButton>
       </div>
-      {/* partneres  */}
+      {/* partners  */}
       <h3 className="text-center text-gray-600">
         <p>AI crawls, analyzes, and scores any startup instantly. </p>
         <p>
