@@ -1,13 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="footer sm:footer-horizontal text-neutral px-10 py-8 flex flex-wrap justify-center md:gap-28 ">
-      <nav className="">
-        <h6 className="footer-title">Services</h6>
-        <a className="link link-hover">Branding</a>
-        <a className="link link-hover">Design</a>
-        <a className="link link-hover">Marketing</a>
-        <a className="link link-hover">Advertisement</a>
-      </nav>
+    <footer className="footer sm:footer-horizontal text-neutral px-10 py-8 flex flex-wrap justify-center md:gap-56   ">
       <nav>
         <h6 className="footer-title">Company</h6>
         <a className="link link-hover">About us</a>
@@ -27,20 +20,6 @@ const Footer = () => {
         <a className="link link-hover">Instagram</a>
         <a className="link link-hover">Facebook</a>
         <a className="link link-hover">GitHub</a>
-      </nav>
-      <nav>
-        <h6 className="footer-title">Explore</h6>
-        <a className="link link-hover">Features</a>
-        <a className="link link-hover">Enterprise</a>
-        <a className="link link-hover">Security</a>
-        <a className="link link-hover">Pricing</a>
-      </nav>
-      <nav>
-        <h6 className="footer-title">Apps</h6>
-        <a className="link link-hover">Mac</a>
-        <a className="link link-hover">Windows</a>
-        <a className="link link-hover">iPhone</a>
-        <a className="link link-hover">Android</a>
       </nav>
     </footer>
   );
