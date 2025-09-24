@@ -1,4 +1,5 @@
-import Landing from "@/components/landing/Landing";
+import Landing from "@/components/screens/Landing";
+
 export default function Home() {
   return (
     <main className="h-screen ">

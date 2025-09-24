@@ -53,9 +53,12 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a>
+        <a className="flex">
           <TypingAnimation className="md:text-xl text-sm capitalize font-medium   ">
-            VENTURE LENS
+            VENTURE
+          </TypingAnimation>
+          <TypingAnimation className="md:text-xl text-sm capitalize font-medium text-orange-500  ">
+            LENS
           </TypingAnimation>
         </a>
       </div>

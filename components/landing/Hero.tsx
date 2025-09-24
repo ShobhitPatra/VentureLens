@@ -75,7 +75,7 @@ const Hero = () => {
             once
             className="md:text-6xl text-3xl font-bold "
           >
-            Venture
+            VENTURE
           </TextAnimate>
           <TextAnimate
             animation="blurInUp"
@@ -83,7 +83,7 @@ const Hero = () => {
             once
             className="md:text-6xl text-3xl font-bold text-orange-500"
           >
-            Lens
+            LENS
           </TextAnimate>
         </div>
         <AnimatedShinyText className="md:text-2xl text-xl text-gray-400">
@@ -126,7 +126,7 @@ const Hero = () => {
         </p>
       </h3>
       <div>
-        <h4 className="text-orange-500 text-center">powered by</h4>
+        <h4 className="text-orange-500 text-center text-sm">POWERED BY</h4>
         <MarqueeList />
       </div>
     </div>
