@@ -2,23 +2,25 @@ import { TextAnimate } from "../ui/text-animate";
 
 const Faq = () => {
   return (
-    <div className="font-mono flex flex-col gap-8 items-center">
-      <TextAnimate
-        animation="slideUp"
-        by="character"
-        once
-        className="md:text-lg  font-medium  text-orange-500"
-      >
-        FAQ
-      </TextAnimate>
-      <TextAnimate
-        animation="slideUp"
-        by="character"
-        once
-        className="md:text-3xl text-3xl text-black"
-      >
-        Frequently Asked Questions
-      </TextAnimate>
+    <div className="font-mono flex flex-col gap-8 items-center md:py-8">
+      <div className="text-center">
+        <TextAnimate
+          animation="slideUp"
+          by="character"
+          once
+          className="md:text-sm  text-orange-500"
+        >
+          FAQ
+        </TextAnimate>
+        <TextAnimate
+          animation="slideUp"
+          by="character"
+          once
+          className="md:text-3xl text-3xl text-black"
+        >
+          Frequently Asked Questions
+        </TextAnimate>
+      </div>
       {/* faq accordian  */}
       <div className=" flex flex-col gap-1">
         <div className="collapse collapse-plus bg-white border border-gray-200">

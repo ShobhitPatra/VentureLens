@@ -24,23 +24,25 @@ const PricingCards = () => {
     },
   ];
   return (
-    <div className="font-mono flex flex-col gap-8 items-center">
-      <TextAnimate
-        animation="slideUp"
-        by="character"
-        once
-        className="md:text-lg font-medium  text-orange-500 text-center"
-      >
-        PRICING
-      </TextAnimate>
-      <TextAnimate
-        animation="slideUp"
-        by="character"
-        once
-        className="md:text-3xl text-3xl text-black text-center"
-      >
-        Choose the plan that's right for you
-      </TextAnimate>
+    <div className="font-mono flex flex-col gap-8 items-center md:py-8">
+      <div className="text-center">
+        <TextAnimate
+          animation="slideUp"
+          by="character"
+          once
+          className="md:text-sm text-orange-500 text-center"
+        >
+          PRICING
+        </TextAnimate>
+        <TextAnimate
+          animation="slideUp"
+          by="character"
+          once
+          className="md:text-3xl text-3xl text-black text-center"
+        >
+          Choose the plan that's right for you
+        </TextAnimate>
+      </div>
       <div className="flex flex-wrap gap-8 items-center justify-center">
         {cardData.map((card, index) => (
           <div
