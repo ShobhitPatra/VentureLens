@@ -1,3 +1,4 @@
+import Community from "../community/Community";
 import Footer from "../Footer";
 import Faq from "../landing/Faq";
 import Hero from "../landing/Hero";
@@ -13,7 +14,8 @@ const Landing = () => {
       <Testimonials />
       <PricingCards />
       <Faq />
-      <div className="h-0.5 bg-gray-200 md:w-[950px] mx-64"></div>
+      <Community />
+      <div className="h-0.5 bg-gray-200 md:w-[950px] mx-64  md:mt-16"></div>
       <Footer />
     </div>
   );
