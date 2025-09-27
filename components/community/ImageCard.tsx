@@ -1,4 +1,4 @@
-import { FileTextIcon, User2 } from "lucide-react";
+import { User2 } from "lucide-react";
 import { BentoCard } from "../ui/bento-grid";
 import Image from "next/image";
 

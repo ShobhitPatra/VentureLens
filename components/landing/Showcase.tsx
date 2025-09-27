@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Lens } from "../ui/lens";
 
@@ -14,11 +13,11 @@ const Showcase = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <Lens>
-            <Image
+            <img
               className="md:w-[1000px] w-64 rounded-md "
               width={200}
               height={200}
-              src="/images/report_example.png"
+              src="/images/venture_lens_hero.png"
               alt="Lens Demo"
             />
           </Lens>

@@ -1,4 +1,5 @@
-import { RainbowButton } from "./ui/rainbow-button";
+import Link from "next/link";
+import { ShinyButton } from "./ui/shiny-button";
 import { TypingAnimation } from "./ui/typing-animation";
 
 const Navbar = () => {
@@ -53,14 +54,14 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="flex">
+        <Link className="flex" href="/" about="">
           <TypingAnimation className="md:text-xl text-sm capitalize font-medium   ">
             VENTURE
           </TypingAnimation>
           <TypingAnimation className="md:text-xl text-sm capitalize font-medium text-orange-500  ">
             LENS
           </TypingAnimation>
-        </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal gap-5 px-1">
@@ -90,9 +91,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <a>
-          <RainbowButton className="text-xs font-light ">
-            Get Started
-          </RainbowButton>
+          <ShinyButton className="text-xs font-light ">Get Started</ShinyButton>
         </a>
       </div>
     </nav>
