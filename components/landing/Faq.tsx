@@ -29,8 +29,8 @@ const Faq = () => {
             How do I create an account?
           </div>
           <div className="collapse-content text-sm text-gray-600">
-            Click the "Sign Up" button in the top right corner and follow the
-            registration process.
+            Click the &quot;Sign Up&quot; button in the top right corner and
+            follow the registration process.
           </div>
         </div>
         <div className="collapse collapse-plus bg-white border border-gray-200">
@@ -39,8 +39,8 @@ const Faq = () => {
             I forgot my password. What should I do?
           </div>
           <div className="collapse-content text-sm text-gray-600">
-            Click on "Forgot Password" on the login page and follow the
-            instructions sent to your email.
+            Click on &quot;Forgot Password&quot; on the login page and follow
+            the instructions sent to your email.
           </div>
         </div>
         <div className="collapse collapse-plus bg-white border border-gray-200">
@@ -49,8 +49,8 @@ const Faq = () => {
             How do I update my profile information?
           </div>
           <div className="collapse-content text-sm text-gray-600">
-            Go to "My Account" settings and select "Edit Profile" to make
-            changes.
+            Go to &quot;My Account&quot; settings and select &quot;Edit
+            Profile&quot; to make changes.
           </div>
         </div>
       </div>

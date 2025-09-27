@@ -40,7 +40,7 @@ const PricingCards = () => {
           once
           className="md:text-3xl text-3xl text-black text-center"
         >
-          Choose the plan that's right for you
+          Choose the plan that&apos;s right for you
         </TextAnimate>
       </div>
       <div className="flex flex-wrap gap-8 items-center justify-center">
