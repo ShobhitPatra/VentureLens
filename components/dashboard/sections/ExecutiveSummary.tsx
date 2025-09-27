@@ -39,6 +39,7 @@ const ExecutiveSummary = ({ report }) => {
   return (
     <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-2xl shadow-xl border border-gray-100">
       {/* Header Section */}
+
       <div className="flex items-center justify-between mb-8">
         <div>
           <h2 className="text-3xl font-bold text-slate-900 mb-2">
