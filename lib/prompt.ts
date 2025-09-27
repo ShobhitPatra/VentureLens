@@ -76,27 +76,8 @@ Example expected format:
 
       return parseResponse(rawText);
     }
-  } catch (error: any) {
+  } catch (error) {
     console.error("Gemini API Error:", error);
-
-    // Return a default structure if everything fails
-    if (error.message.includes("parse") || error.message.includes("JSON")) {
-      console.log("Returning fallback response due to parsing failure");
-      return {
-        overall_score: 0,
-        confidence_level: "Low",
-        investment_readiness: "Unable to assess",
-        core_metrics: {
-          market_size: 0,
-          competition: 0,
-          team_strength: 0,
-          product_viability: 0,
-        },
-        error_note: "Analysis failed due to response parsing issues",
-        raw_error: error.message,
-      };
-    }
-
-    throw new Error(error);
+    throw new Error("Gemini API Error:");
   }
 };

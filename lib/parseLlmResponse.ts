@@ -89,25 +89,16 @@ export const parseResponse = (rawText: string) => {
 
       jsonText = fixedJson;
     }
-
     console.log("Final JSON to parse:", jsonText);
-
     // Try parsing
     let parsedResult;
-
     try {
       parsedResult = JSON.parse(jsonText);
       console.log("JSON parsing successful!");
-    } catch (parseError: any) {
-      console.error("Parse error details:", parseError.message);
-      console.error(
-        "Position of error:",
-        parseError.message.match(/position (\d+)/)?.[1]
-      );
-
+    } catch (parseError) {
+      console.error("Parse error details:", parseError);
       // Last resort: try to create a minimal valid response
       console.log("Attempting minimal recovery...");
-
       try {
         // Extract what we can and create a basic structure
         const scoreMatch = jsonText.match(/"overall_score":\s*([\d.]+)/);
@@ -118,7 +109,7 @@ export const parseResponse = (rawText: string) => {
           /"confidence_level":\s*"([^"]+)"/
         );
 
-        const recoveredData: any = {
+        const recoveredData = {
           overall_score: scoreMatch ? parseFloat(scoreMatch[1]) : 0,
           investment_readiness: investmentMatch
             ? investmentMatch[1]
@@ -136,7 +127,7 @@ export const parseResponse = (rawText: string) => {
         console.log("Recovered minimal data:", recoveredData);
         return recoveredData;
       } catch (recoveryError) {
-        throw new Error(`Complete parsing failure: ${parseError.message}`);
+        throw new Error(`Complete parsing failure: ${parseError}`);
       }
     }
 
@@ -169,11 +160,11 @@ export const parseResponse = (rawText: string) => {
 
     console.log("Successfully parsed complete response");
     return parsedResult;
-  } catch (error: any) {
+  } catch (error) {
     console.error("Parse function error:", error);
 
     // Provide more context in the error message
-    const errorMessage = error.message || "Unknown parsing error";
+    const errorMessage = "Unknown parsing error";
     const preview = rawText ? rawText.substring(0, 200) + "..." : "No content";
 
     throw new Error(
