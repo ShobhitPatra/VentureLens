@@ -62,7 +62,9 @@ const Hero = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          url,
           crawlData: markdownContent,
+          userEmail: user!.email,
         }),
       });
       const llmData = await llmResponse.json();

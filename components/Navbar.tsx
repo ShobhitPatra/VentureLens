@@ -2,13 +2,13 @@
 import Link from "next/link";
 import { ShinyButton } from "./ui/shiny-button";
 import { TypingAnimation } from "./ui/typing-animation";
-import { useAuthWithConvex } from "@/hooks/useWithConvex";
 import { DropdownMenuIcon } from "@radix-ui/react-icons";
-import { LogOut } from "lucide-react";
+import { History, LogOut } from "lucide-react";
 import { signOut } from "@/lib/auth-client";
+import { useCurrentUser } from "@/store/useCurrentUser";
 
 const Navbar = () => {
-  const { user, loading } = useAuthWithConvex();
+  const { currentUser } = useCurrentUser();
   return (
     <nav
       className="flex w-full items-center  text-primary font-medium shadow-sm md:px-64 py-2 font-mono border-b-1
@@ -95,12 +95,11 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-
       <div className="navbar-end">
-        {user ? (
+        {currentUser ? (
           <details className="dropdown">
             <summary className="p-4 btn bg-white hover:bg-gray-100 border-[0.5px] border-gray-300 text-gray-700 rounded-2xl m-1">
-              {user.email}
+              {currentUser.email}
               <span>
                 <DropdownMenuIcon />
               </span>
@@ -115,7 +114,12 @@ const Navbar = () => {
                 </button>
               </li>
               <li>
-                <Link href={"/history"}>History</Link>
+                <Link href={"/history"}>
+                  History
+                  <span>
+                    <History size={14} />
+                  </span>
+                </Link>
               </li>
             </ul>
           </details>

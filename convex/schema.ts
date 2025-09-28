@@ -15,6 +15,7 @@ export default defineSchema({
 
   reports: defineTable({
     userId: v.string(),
+    originalUrl: v.string(),
     reportData: v.string(),
     created_at: v.number(),
   }).index("by_userId", ["userId"]),

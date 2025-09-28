@@ -3,10 +3,12 @@ import { useSession } from "@/lib/auth-client";
 import { useMutation, useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { useEffect, useState } from "react";
+import { useCurrentUser } from "@/store/useCurrentUser";
 
 export function useAuthWithConvex() {
   const { data: session, isPending: sessionLoading } = useSession();
   const [isInitialized, setIsInitialized] = useState(false);
+  const { setCurrentUser } = useCurrentUser();
 
   // Convex mutations
   const createUser = useMutation(api.users.createUser);
@@ -30,6 +32,12 @@ export function useAuthWithConvex() {
             providerId: session.user.id,
           });
           setIsInitialized(true);
+          const user = {
+            email: session.user.email,
+            name: session.user.name,
+            image: session.user.image || "",
+          };
+          setCurrentUser(user);
         } catch (error) {
           console.error("Failed to sync user to Convex:", error);
         }

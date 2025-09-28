@@ -1,25 +1,25 @@
-// convex/reports.ts
 import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 
 export const createReport = mutation({
   args: {
-    userEmail: v.string(), // We'll find user by email
-    reportData: v.any(),
+    userEmail: v.string(),
+    originalUrl: v.string(),
+    reportData: v.string(),
   },
   handler: async (ctx, args) => {
-    // Find the Convex user
     const user = await ctx.db
       .query("users")
       .withIndex("by_email", (q) => q.eq("email", args.userEmail))
       .first();
 
     if (!user) {
-      throw new Error("User not found");
+      throw new Error("User not found. Please sign in first.");
     }
 
     return await ctx.db.insert("reports", {
-      userId: user._id, // Link to Convex user!
+      userId: user._id,
+      originalUrl: args.originalUrl,
       reportData: args.reportData,
       created_at: Date.now(),
     });
@@ -39,6 +39,7 @@ export const getUserReports = query({
     return await ctx.db
       .query("reports")
       .withIndex("by_userId", (q) => q.eq("userId", user._id))
+      .order("desc")
       .collect();
   },
 });
