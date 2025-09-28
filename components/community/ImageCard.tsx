@@ -6,15 +6,15 @@ const feature = {
   Icon: User2,
   name: "JOIN",
   description: "Start your free trial today.",
-  href: "/",
+  href: "/auth",
   cta: "Login Now",
   background: (
-    <Image
+    <img
       width={200}
       height={200}
       alt="demoimage"
-      src="/images/report_example.png"
-      className="absolute w-full h-full opacity-30 "
+      src="/images/venture_lens_hero.png"
+      className="absolute w-full h-full opacity-50 "
     />
   ),
   className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",

@@ -1,4 +1,3 @@
-import { BentoGrid } from "../ui/bento-grid";
 import { TextAnimate } from "../ui/text-animate";
 import ContactCard from "./ContactCard";
 import GlobeCard from "./GlobeCard";

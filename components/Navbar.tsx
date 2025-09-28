@@ -1,11 +1,17 @@
+"use client";
 import Link from "next/link";
 import { ShinyButton } from "./ui/shiny-button";
 import { TypingAnimation } from "./ui/typing-animation";
+import { useAuthWithConvex } from "@/hooks/useWithConvex";
+import { DropdownMenuIcon } from "@radix-ui/react-icons";
+import { LogOut } from "lucide-react";
+import { signOut } from "@/lib/auth-client";
 
 const Navbar = () => {
+  const { user, loading } = useAuthWithConvex();
   return (
     <nav
-      className="flex w-full items-center  text-primary font-medium shadow-sm md:px-64  font-mono border-b-1
+      className="flex w-full items-center  text-primary font-medium shadow-sm md:px-64 py-2 font-mono border-b-1
       bg-clip-padding
       backdrop-filter
       backdrop-blur-xl
@@ -89,10 +95,37 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
+
       <div className="navbar-end">
-        <a>
-          <ShinyButton className="text-xs font-light ">Get Started</ShinyButton>
-        </a>
+        {user ? (
+          <details className="dropdown">
+            <summary className="p-4 btn bg-white hover:bg-gray-100 border-[0.5px] border-gray-300 text-gray-700 rounded-2xl m-1">
+              {user.email}
+              <span>
+                <DropdownMenuIcon />
+              </span>
+            </summary>
+            <ul className="bg-gray-100 menu dropdown-content rounded-box z-1 w-32  shadow-sm text-gray-800 ">
+              <li>
+                <button onClick={() => signOut()} className="rounded-md">
+                  Logout
+                  <span>
+                    <LogOut size={14} />
+                  </span>
+                </button>
+              </li>
+              <li>
+                <Link href={"/history"}>History</Link>
+              </li>
+            </ul>
+          </details>
+        ) : (
+          <Link href="/auth">
+            <ShinyButton className="shadow-md shadow-orange-500/80 border-[0.5px] text-gray-700 border-gray-300 hover:border-none bg-white hover:bg-orange-400 hover:text-white text-sm font-semibold ">
+              Get Started
+            </ShinyButton>
+          </Link>
+        )}
       </div>
     </nav>
   );

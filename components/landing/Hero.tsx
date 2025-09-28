@@ -4,9 +4,10 @@ import { ShinyButton } from "../ui/shiny-button";
 import MarqueeList from "./Marquee";
 import { Loader2, MoveRight } from "lucide-react";
 import { AnimatedShinyText } from "../ui/animated-shiny-text";
-import { TextAnimate } from "../ui/text-animate";
+import { motion } from "framer-motion";
 import { useReport } from "@/store/useReport";
 import { useRouter } from "next/navigation";
+import { useAuthWithConvex } from "@/hooks/useWithConvex";
 
 const LOADING_MESSAGESS = {
   get_crawl_id: [
@@ -30,6 +31,7 @@ const Hero = () => {
   const [loadingMessage, setloadingMessage] = useState<string>("");
   const { setReport } = useReport();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { user } = useAuthWithConvex();
 
   const router = useRouter();
   const pollCrawl = async (crawl_id: string) => {
@@ -72,6 +74,9 @@ const Hero = () => {
   };
   const handleOnClick = async () => {
     try {
+      if (!user) {
+        router.push("/auth");
+      }
       setIsLoading(true);
       setloadingMessage(LOADING_MESSAGESS.get_crawl_id[0]);
       const resposne = await fetch(`/api/crawl`, {
@@ -108,22 +113,17 @@ const Hero = () => {
     <div className="font-mono flex flex-col items-center justify-center pt-16 gap-8 md:px-64">
       <div className="text-center">
         <div className="flex">
-          <TextAnimate
-            animation="blurInUp"
-            by="character"
-            once
-            className="md:text-6xl text-3xl font-bold "
+          <motion.div
+            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="flex"
           >
-            VENTURE
-          </TextAnimate>
-          <TextAnimate
-            animation="blurInUp"
-            by="character"
-            once
-            className="md:text-6xl text-3xl font-bold text-orange-500"
-          >
-            LENS
-          </TextAnimate>
+            <div className="md:text-6xl text-3xl font-bold ">VENTURE</div>
+            <div className="md:text-6xl text-3xl font-bold text-orange-500">
+              LENS
+            </div>
+          </motion.div>
         </div>
         <AnimatedShinyText className="md:text-2xl text-xl text-gray-400">
           See Startups Clearly
