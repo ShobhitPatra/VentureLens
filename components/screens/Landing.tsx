@@ -10,7 +10,7 @@ const Landing = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-8 bg-white">
       <Hero />
-      <div id="showcase">
+       <div id="showcase">
         <Showcase />
       </div>
       <div id="testimonials">

@@ -7,6 +7,7 @@ import StrategicActionPlan from "../dashboard/sections/StrategicActionPlan";
 import FinancialProjections from "../dashboard/sections/FinancialProjections";
 import DashboardFooter from "../dashboard/DashboardFooter";
 import { useReport } from "@/store/useReport";
+import VoiceQAAssistant from "../VoiceQAAssistant";
 
 const Dashboard = () => {
   const { report } = useReport();
@@ -19,6 +20,9 @@ const Dashboard = () => {
       <RiskAssessment report={report} />
       <FinancialProjections report={report} />
       <StrategicActionPlan report={report} />
+      <div id="voice-qa-assistant">
+        <VoiceQAAssistant report={report} />
+      </div>
       <DashboardFooter />
     </div>
   );
