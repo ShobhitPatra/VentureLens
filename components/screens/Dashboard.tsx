@@ -8,20 +8,10 @@ import FinancialProjections from "../dashboard/sections/FinancialProjections";
 import DashboardFooter from "../dashboard/DashboardFooter";
 import { useReport } from "@/store/useReport";
 import VoiceQAAssistant from "../VoiceQAAssistant";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 import { Loader2 } from "lucide-react";
 
 const Dashboard = () => {
   const { report } = useReport();
-  console.log(report);
-  const router = useRouter();
-  // useEffect(() => {
-  //   if (!report) {
-  //     router.replace("/");
-  //   }
-  // }, [report, router]);
-
   if (!report) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
