@@ -5,22 +5,39 @@ import { TextAnimate } from "../ui/text-animate";
 const PricingCards = () => {
   const cardData = [
     {
-      image: "https://i.imgur.com/Ql4jRdB.png",
-      title: "Single User",
-      price: "$149",
-      features: ["500 GB Storage", "1 Granted User", "Send up to 2 GB"],
+      title: "Startup",
+      price: "$49",
+      features: [
+        "20 Startup Analyses",
+        "Basic Investment Reports",
+        "Market Opportunity Insights",
+        "Email Support",
+      ],
     },
     {
-      image: "https://i.imgur.com/pJNFEHR.png",
-      title: "Double User",
+      title: "Professional",
       price: "$149",
-      features: ["500 GB Storage", "1 Granted User", "Send up to 2 GB"],
+      features: [
+        "100 Startup Analyses",
+        "Advanced VC Reports",
+        "Competitive Intelligence",
+        "Financial Projections",
+        "Priority Support",
+        "Export to PDF",
+      ],
     },
     {
-      image: "https://i.imgur.com/Hg0sUJP.png",
-      title: "Triple User",
-      price: "$149",
-      features: ["500 GB Storage", "1 Granted User", "Send up to 2 GB"],
+      title: "Enterprise",
+      price: "$449",
+      features: [
+        "Unlimited Analyses",
+        "White-label Reports",
+        "API Access",
+        "Custom Integrations",
+        "Team Collaboration (5 users)",
+        "Dedicated Account Manager",
+        "Advanced Analytics Dashboard",
+      ],
     },
   ];
   return (

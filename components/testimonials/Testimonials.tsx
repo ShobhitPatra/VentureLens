@@ -4,39 +4,39 @@ import ReviewCard from "./ReviewCard";
 
 const reviews = [
   {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
+    name: "Sarah Chen",
+    username: "@sarah ",
+    body: "VentureLens cuts our initial screening time from weeks to minutes. The depth of analysis rivals our internal research team.",
     img: "https://avatar.vercel.sh/jack",
   },
   {
-    name: "Jill",
-    username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
+    name: "Robin",
+    username: "@rob",
+    body: "I can't believe what I'm able to uncover about startups in just seconds. This is a game-changer for deal flow.",
     img: "https://avatar.vercel.sh/jill",
   },
   {
-    name: "John",
-    username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    name: "Priya Agarwal",
+    username: "@agpriya",
+    body: "We used VentureLens to prepare for our Series A. The insights helped us strengthen our pitch deck significantly.",
     img: "https://avatar.vercel.sh/john",
   },
   {
-    name: "Jane",
-    username: "@jane",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    name: "James Rodriquez",
+    username: "@jamesrodri",
+    body: "The AI analysis is incredible. It surfaces risks and opportunities we would have taken weeks to identify.",
     img: "https://avatar.vercel.sh/jane",
   },
   {
-    name: "Jenny",
-    username: "@jenny",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    name: "Pedri Gonzalez",
+    username: "@gonzalezpedri",
+    body: "This is a must-have for anyone serious about startup investing. The ROI is immediate.",
     img: "https://avatar.vercel.sh/jenny",
   },
   {
-    name: "James",
-    username: "@james",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    name: "David Kim",
+    username: "@kim",
+    body: "VentureLens has become our first step in due diligence. The competitive analysis alone is worth the subscription.",
     img: "https://avatar.vercel.sh/james",
   },
 ];
@@ -54,7 +54,7 @@ const Testimonials = () => {
           once
           className="md:text-sm  text-orange-500 md:mt-14"
         >
-          TESTIMONIALS
+          TRUSTED BY INVESTORS
         </TextAnimate>
         <TextAnimate
           animation="slideUp"
@@ -62,7 +62,7 @@ const Testimonials = () => {
           once
           className="md:text-3xl text-3xl text-black "
         >
-          What our customers are saying
+          What people are saying
         </TextAnimate>
       </div>
       <div className="flex flex-col">

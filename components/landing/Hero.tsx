@@ -11,18 +11,18 @@ import { useAuthWithConvex } from "@/hooks/useWithConvex";
 
 const LOADING_MESSAGESS = {
   get_crawl_id: [
+    "Verifying account status",
     "Initializing website analysis pipeline",
-    "Contacting crawler network… assigning crawl ID",
     "Preparing to fetch site data",
   ],
   poll_crawl_url: [
     "Extracting raw content from the website",
-    "Gathering text, stripping away design fluff…",
+    "Gathering text, stripping away design fluff",
   ],
   analyze_llmResponse: [
     "Scanning extracted content for business insights",
-    "Evaluating startup across 10+ venture metrics…",
-    "Finalizing VentureLens scorecard…",
+    "Evaluating startup across 10+ venture metrics",
+    "Finalizing VentureLens scorecard",
   ],
 };
 
@@ -114,7 +114,7 @@ const Hero = () => {
   return (
     <div className="font-mono flex flex-col items-center justify-center pt-16 gap-8 md:px-64">
       <div className="text-center">
-        <div className="flex">
+        <div className="flex justify-center">
           <motion.div
             initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -127,8 +127,8 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
-        <AnimatedShinyText className="md:text-2xl text-xl text-gray-400">
-          See Startups Clearly
+        <AnimatedShinyText className="md:text-2xl  text-gray-400 text-center">
+          AI-Powered Investment Intelligence in Seconds
         </AnimatedShinyText>
       </div>
       {/* input  */}
@@ -173,9 +173,12 @@ const Hero = () => {
       )}
       {/* partners  */}
       <h3 className="text-center text-gray-600">
-        <p>AI crawls, analyzes, and scores any startup instantly. </p>
         <p>
-          From clarity to business model, get a VC-style evaluation in seconds.
+          Analyze startups, evaluate opportunities, and access deep VC-grade
+          insights instantly.
+        </p>
+        <p>
+          From clarity to business model—get a complete evaluation in seconds.
         </p>
       </h3>
       <div>

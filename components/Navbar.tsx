@@ -52,13 +52,8 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <button onClick={() => scrollToSection("showcase")}>
-                Showcase
-              </button>
-            </li>
-            <li>
               <button onClick={() => scrollToSection("testimonials")}>
-                Testimonials
+                Latest
               </button>
             </li>
             <li>
@@ -88,13 +83,8 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal gap-5 px-1">
           <li>
-            <button onClick={() => scrollToSection("showcase")}>
-              Showcase
-            </button>
-          </li>
-          <li>
             <button onClick={() => scrollToSection("testimonials")}>
-              Testimonials
+              Latest
             </button>
           </li>
           <li>

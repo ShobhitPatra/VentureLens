@@ -2,7 +2,7 @@ import { TextAnimate } from "../ui/text-animate";
 
 const Faq = () => {
   return (
-    <div className="font-mono flex flex-col gap-8 items-center md:py-8">
+    <div className="font-mono flex flex-col gap-8 items-center md:py-8 md:px-64">
       <div className="text-center">
         <TextAnimate
           animation="slideUp"
@@ -26,31 +26,46 @@ const Faq = () => {
         <div className="collapse collapse-plus bg-white border border-gray-200">
           <input type="radio" name="my-accordion-3" defaultChecked />
           <div className="collapse-title font-medium">
-            How do I create an account?
+            What information do I need to provide?
           </div>
           <div className="collapse-content text-sm text-gray-600">
-            Click the &quot;Sign Up&quot; button in the top right corner and
-            follow the registration process.
+            Just paste the startup's website URL. Our AI does the rest—crawling
+            their site, analyzing their business model, market position, and
+            generating a detailed investment evaluation report.
           </div>
         </div>
         <div className="collapse collapse-plus bg-white border border-gray-200">
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title font-medium">
-            I forgot my password. What should I do?
+            How does VentureLens analyze startups?
           </div>
           <div className="collapse-content text-sm text-gray-600">
-            Click on &quot;Forgot Password&quot; on the login page and follow
-            the instructions sent to your email.
+            We use advanced AI to crawl and analyze startup websites, extracting
+            key business intelligence. Our system evaluates 10+ critical
+            dimensions including problem-solution fit, market opportunity,
+            competitive positioning, team credibility, and financial
+            viability—generating a comprehensive VC-grade report in seconds.
           </div>
         </div>
         <div className="collapse collapse-plus bg-white border border-gray-200">
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title font-medium">
-            How do I update my profile information?
+            What if the startup doesn't have a website?
           </div>
           <div className="collapse-content text-sm text-gray-600">
-            Go to &quot;My Account&quot; settings and select &quot;Edit
-            Profile&quot; to make changes.
+            We require a public website for analysis. However, you can analyze
+            pitch decks and documents by upgrading to our Professional or
+            Enterprise plans.
+          </div>
+        </div>
+        <div className="collapse collapse-plus bg-white border border-gray-200">
+          <input type="radio" name="my-accordion-3" />
+          <div className="collapse-title font-medium">
+            Do you store or share the analyzed data?
+          </div>
+          <div className="collapse-content text-sm text-gray-600">
+            All analyses are private to your account. We don't share or sell any
+            data. You can delete reports anytime.
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ const Community = () => {
           once
           className="md:text-sm  text-orange-500"
         >
-          COMMUNITY
+          CONNECT WORLDWIDE
         </TextAnimate>
         <TextAnimate
           animation="slideUp"
@@ -21,7 +21,7 @@ const Community = () => {
           once
           className="md:text-3xl text-3xl text-black"
         >
-          Connect worldwide and meet the team
+          Ready to make smarter investment decisions?
         </TextAnimate>
       </div>
       <div className="flex flex-col gap-2">
