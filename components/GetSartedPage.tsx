@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
 import MarqueeList from "./landing/Marquee";
 import { AnimatedShinyText } from "./ui/animated-shiny-text";
-import { TextAnimate } from "./ui/text-animate";
 import { ShinyButton } from "./ui/shiny-button";
 import { signIn } from "@/lib/auth-client";
 import { useAuthWithConvex } from "@/hooks/useWithConvex";

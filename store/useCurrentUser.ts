@@ -1,16 +1,14 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
-interface currentUserI {
-  name?: string;
-  email: string;
-  image?: string;
-}
-interface currentUserProps {
-  currentUser: currentUserI | null;
-  setCurrentUser: (currentUser: currentUserI | null) => void;
-}
-
-export const useCurrentUser = create<currentUserProps>((set) => ({
-  currentUser: null,
-  setCurrentUser: (currentUser) => set({ currentUser }),
-}));
+export const useCurrentUser = create(
+  persist(
+    (set) => ({
+      currentUer: null,
+      setCurrentUser: (currentUser) => set({ currentUser }),
+    }),
+    {
+      name: "venturelens-user", // localStorage key
+    }
+  )
+);

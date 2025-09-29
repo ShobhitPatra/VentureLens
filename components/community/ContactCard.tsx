@@ -14,8 +14,8 @@ const ContactCard = () => {
         flickerChance={0.1}
       />
       <div className="avatar absolute left-16 ">
-        <div className="w-24 rounded-xl">
-          <img src="https://img.daisyui.com/images/profile/demo/yellingwoman@192.webp" />
+        <div className="w-24 rounded-xl ">
+          <img alt="profile" src="/images/profile_headshot.jpeg" />
         </div>
       </div>
       <div className="md:absolute opacity-0 md:opacity-100 ">

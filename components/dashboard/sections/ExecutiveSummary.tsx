@@ -5,7 +5,6 @@ import {
   AlertTriangle,
   CheckCircle,
   DollarSign,
-  Users,
   Target,
   BarChart3,
 } from "lucide-react";

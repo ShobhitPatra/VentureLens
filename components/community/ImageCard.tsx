@@ -1,6 +1,5 @@
 import { User2 } from "lucide-react";
-import { BentoCard } from "../ui/bento-grid";
-import Image from "next/image";
+import { BentoCard } from "../ui/bento-grid"; 
 
 const feature = {
   Icon: User2,

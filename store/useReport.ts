@@ -1,11 +1,14 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
-interface ReportStoreProps {
-  report: object | null;
-  setReport: (report: object) => void;
-}
-
-export const useReport = create<ReportStoreProps>((set) => ({
-  report: null,
-  setReport: (report) => set({ report }),
-}));
+export const useReport = create(
+  persist(
+    (set) => ({
+      report: null,
+      setReport: (report) => set({ report }),
+    }),
+    {
+      name: "venturelens-report", // localStorage key
+    }
+  )
+);
