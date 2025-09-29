@@ -14,7 +14,7 @@ export default defineSchema({
     .index("by_provider", ["provider"]),
 
   reports: defineTable({
-    userId: v.string(),
+    userId: v.id("users"),
     originalUrl: v.string(),
     reportData: v.string(),
     created_at: v.number(),

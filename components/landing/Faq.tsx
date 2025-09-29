@@ -29,9 +29,9 @@ const Faq = () => {
             What information do I need to provide?
           </div>
           <div className="collapse-content text-sm text-gray-600">
-            Just paste the startup's website URL. Our AI does the rest—crawling
-            their site, analyzing their business model, market position, and
-            generating a detailed investment evaluation report.
+            Just paste the startup&apos;s website URL. Our AI does the
+            rest—crawling their site, analyzing their business model, market
+            position, and generating a detailed investment evaluation report.
           </div>
         </div>
         <div className="collapse collapse-plus bg-white border border-gray-200">
@@ -50,7 +50,7 @@ const Faq = () => {
         <div className="collapse collapse-plus bg-white border border-gray-200">
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title font-medium">
-            What if the startup doesn't have a website?
+            What if the startup doesn&apos;t have a website?
           </div>
           <div className="collapse-content text-sm text-gray-600">
             We require a public website for analysis. However, you can analyze
@@ -64,8 +64,8 @@ const Faq = () => {
             Do you store or share the analyzed data?
           </div>
           <div className="collapse-content text-sm text-gray-600">
-            All analyses are private to your account. We don't share or sell any
-            data. You can delete reports anytime.
+            All analyses are private to your account. We don&apos;t share or
+            sell any data. You can delete reports anytime.
           </div>
         </div>
       </div>

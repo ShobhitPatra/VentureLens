@@ -20,7 +20,7 @@ const feature = {
   className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
 };
 const ImageCard = () => {
-  return <BentoCard {...feature} className="md:w-[500px] font-mono" />;
+  return <BentoCard {...feature} className="md:w-[500px] font-mono " />;
 };
 
 export default ImageCard;

@@ -9,11 +9,7 @@ interface ConversationMessage {
   timestamp: Date;
 }
 
-interface VoiceQAAssistantProps {
-  report: any; // Your report type
-}
-
-const VoiceQAAssistant = ({ report }: VoiceQAAssistantProps) => {
+const VoiceQAAssistant = ({ report }) => {
   const [isListening, setIsListening] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isInitializing, setIsInitializing] = useState(true);

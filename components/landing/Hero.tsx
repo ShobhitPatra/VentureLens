@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { useReport } from "@/store/useReport";
 import { useRouter } from "next/navigation";
 import { useAuthWithConvex } from "@/hooks/useWithConvex";
+import { Slide, ToastContainer, toast } from "react-toastify";
 
 const LOADING_MESSAGESS = {
   get_crawl_id: [
@@ -27,7 +28,7 @@ const LOADING_MESSAGESS = {
 };
 
 const Hero = () => {
-  const [url, setUrl] = useState<string>("https://example.com/");
+  const [url, setUrl] = useState<string>("");
   const [loadingMessage, setloadingMessage] = useState<string>("");
   const { setReport } = useReport();
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -92,12 +93,24 @@ const Hero = () => {
       });
       setloadingMessage(LOADING_MESSAGESS.get_crawl_id[1]);
       if (!resposne.ok) {
-        throw new Error("ERROR GETTING CRAWL_ID FROM SERVER ");
+        toast.error("Please enter valid url", {
+          position: "bottom-right",
+          autoClose: 600,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Slide,
+        });
+        return;
       }
 
       const data = await resposne.json();
       if (!data.crawl_id) {
-        throw new Error("CRAWL_ID DID NOT REACHED THE CLIENT ");
+        throw new Error("error getting data from pollCrawl");
+        return;
       }
       setloadingMessage(LOADING_MESSAGESS.get_crawl_id[2]);
       const markdownContent = await pollCrawl(data.crawl_id);
@@ -127,7 +140,7 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
-        <AnimatedShinyText className="md:text-2xl  text-gray-400 text-center">
+        <AnimatedShinyText className="md:text-xl text-gray-400 text-center">
           AI-Powered Investment Intelligence in Seconds
         </AnimatedShinyText>
       </div>
@@ -152,7 +165,7 @@ const Hero = () => {
               }}
               type="search"
               className="grow bg-transparent outline-none"
-              placeholder="paste site url"
+              placeholder="https://example.com"
             />
             <kbd className="kbd kbd-sm  border-gray-200 border bg-background">
               ⌘
@@ -185,6 +198,7 @@ const Hero = () => {
         <h4 className="text-orange-500 text-center text-sm">POWERED BY</h4>
         <MarqueeList />
       </div>
+      <ToastContainer />
     </div>
   );
 };

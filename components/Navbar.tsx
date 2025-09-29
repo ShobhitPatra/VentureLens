@@ -25,7 +25,6 @@ const Navbar = () => {
       backdrop-filter
       backdrop-blur-xl
       bg-opacity-10
-      sticky top-0 z-50
 "
     >
       <div className="navbar-start">

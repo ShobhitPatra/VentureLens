@@ -5,7 +5,7 @@ import { Lens } from "../ui/lens";
 const Showcase = () => {
   return (
     <div className="rounded-md p-2 flex flex-col items-center justify-center gap-8 md:px-64 ">
-      <div className="shadow-2xl shadow-gray-500/40">
+      <div className="shadow-2xl shadow-gray-500/40 rounded-md">
         <motion.div
           className="flex flex-col items-center rounded-md "
           initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
@@ -14,7 +14,7 @@ const Showcase = () => {
         >
           <Lens>
             <img
-              className="md:w-[1000px] w-64 rounded-md "
+              className="md:w-[1000px] w-64 rounded-md"
               width={200}
               height={200}
               src="/images/venture_lens_hero.png"

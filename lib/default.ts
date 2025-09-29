@@ -96,7 +96,7 @@ Evaluate how well the startup communicates its story:
 ## Response Format
 
 You MUST STRICTLY return ONLY a valid JSON object with this exact structure (no markdown formatting, no additional text):
-
+IMPORTANT: Do NOT copy example numbers. You must compute all numeric values (scores, contributions, weighted score, overall score) from the analysis.
 {
   "overall_score": 7.2,
   "weighted_score": 7.35,

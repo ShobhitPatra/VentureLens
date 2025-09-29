@@ -34,7 +34,7 @@ const ContactCard = () => {
             </span>
           </h6>
         </a>
-        <a href="/https://www.linkedin.com/in/shobhit-patra-4a4243264/">
+        <a href="https://www.linkedin.com/in/shobhit-patra-4a4243264/">
           <h6 className="hover:text-blue-500 flex items-center justify-start gap-1 hover:underline hover:cursor-pointer">
             LinkedIn
             <span>
