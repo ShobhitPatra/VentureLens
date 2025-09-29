@@ -9,6 +9,15 @@ import { useCurrentUser } from "@/store/useCurrentUser";
 
 const Navbar = () => {
   const { currentUser, setCurrentUser } = useCurrentUser();
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
   return (
     <nav
       className="flex w-full items-center  text-primary font-medium shadow-sm md:px-64 py-2 font-mono border-b-1
@@ -16,6 +25,7 @@ const Navbar = () => {
       backdrop-filter
       backdrop-blur-xl
       bg-opacity-10
+      sticky top-0 z-50
 "
     >
       <div className="navbar-start">
@@ -39,24 +49,30 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content  rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a>Item 1</a>
+              <button onClick={() => scrollToSection("showcase")}>
+                Showcase
+              </button>
             </li>
             <li>
-              <a>Parent</a>
-              <ul className="p-2 ">
-                <li>
-                  <a>Submenu</a>
-                </li>
-                <li>
-                  <a>Submenu</a>
-                </li>
-              </ul>
+              <button onClick={() => scrollToSection("testimonials")}>
+                Testimonials
+              </button>
             </li>
             <li>
-              <a>Item 3</a>
+              <button onClick={() => scrollToSection("pricing")}>
+                Pricing
+              </button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection("faq")}>FAQ</button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection("community")}>
+                Community
+              </button>
             </li>
           </ul>
         </div>
@@ -72,26 +88,25 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal gap-5 px-1">
           <li>
-            <a>Contact</a>
+            <button onClick={() => scrollToSection("showcase")}>
+              Showcase
+            </button>
           </li>
           <li>
-            <details>
-              <summary className="">Pricing</summary>
-              <ul className="p-2 bg-white">
-                <li>
-                  <a>Submenu</a>
-                </li>
-                <li>
-                  <a>Submenu2</a>
-                </li>
-              </ul>
-            </details>
+            <button onClick={() => scrollToSection("testimonials")}>
+              Testimonials
+            </button>
           </li>
           <li>
-            <a>About</a>
+            <button onClick={() => scrollToSection("pricing")}>Pricing</button>
           </li>
           <li>
-            <a>Community</a>
+            <button onClick={() => scrollToSection("faq")}>FAQ</button>
+          </li>
+          <li>
+            <button onClick={() => scrollToSection("community")}>
+              Community
+            </button>
           </li>
         </ul>
       </div>
