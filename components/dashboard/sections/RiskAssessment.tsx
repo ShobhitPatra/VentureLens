@@ -299,7 +299,7 @@ const RiskAssessment = ({ report }) => {
   return (
     <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-wrap items-center justify-between mb-8">
         <div>
           <h3 className="text-2xl font-bold text-gray-900">
             Risk Assessment & Due Diligence Framework
@@ -340,7 +340,7 @@ const RiskAssessment = ({ report }) => {
       </div>
 
       {/* Risk Matrix Visualization */}
-      <div className="grid grid-cols-3 gap-8 mb-8">
+      <div className="grid md:grid-cols-3 gap-8 mb-8">
         <div className="col-span-2">
           <div className="bg-gradient-to-br from-red-50 to-orange-50 p-6 rounded-xl border border-red-200">
             <h4 className="text-lg font-bold text-red-900 mb-4 flex items-center">
@@ -454,7 +454,7 @@ const RiskAssessment = ({ report }) => {
       </div>
 
       {/* Risk Evolution Timeline */}
-      <div className="grid grid-cols-2 gap-8 mb-8">
+      <div className="grid md:grid-cols-2 gap-8 mb-8">
         <div className="bg-gradient-to-br from-purple-50 to-indigo-50 p-6 rounded-xl border border-purple-200">
           <h4 className="text-lg font-bold text-purple-900 mb-4 flex items-center">
             <TrendingDown className="w-5 h-5 mr-2" />

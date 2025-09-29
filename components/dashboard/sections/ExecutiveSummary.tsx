@@ -40,9 +40,9 @@ const ExecutiveSummary = ({ report }) => {
     <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-2xl shadow-xl border border-gray-100">
       {/* Header Section */}
 
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-wrap items-center justify-between mb-8">
         <div>
-          <h2 className="text-3xl font-bold text-slate-900 mb-2">
+          <h2 className="md:text-3xl text-xl font-bold text-slate-900 mb-2">
             Investment Thesis Overview
           </h2>
           <p className="text-slate-600 text-lg">
@@ -50,7 +50,7 @@ const ExecutiveSummary = ({ report }) => {
             {report.analysis_date}
           </p>
         </div>
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center  space-x-6">
           <div className="text-right">
             <div className="text-sm font-medium text-slate-500 uppercase tracking-wider">
               Confidence Level
@@ -63,13 +63,13 @@ const ExecutiveSummary = ({ report }) => {
       </div>
 
       {/* Primary Metrics Grid */}
-      <div className="grid grid-cols-4 gap-6 mb-8">
+      <div className="grid md:grid-cols-4 gap-6 mb-8">
         <div
           className={`p-6 rounded-xl border-2 ${getScoreBgColor(
             report.overall_score
           )}`}
         >
-          <div className="flex items-center justify-between">
+          <div className="flex flex-wrap items-center justify-between">
             <div>
               <div className="text-sm font-semibold text-slate-600 uppercase tracking-wider">
                 Investment Score
@@ -142,12 +142,12 @@ const ExecutiveSummary = ({ report }) => {
       </div>
 
       {/* Investment Recommendation */}
-      <div className="grid grid-cols-3 gap-6 mb-8">
-        <div className="col-span-2 bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+      <div className="grid md:grid-cols-3 gap-6 mb-8">
+        <div className="md:col-span-2 bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
           <h3 className="text-lg font-bold text-slate-900 mb-4">
             Investment Committee Recommendation
           </h3>
-          <div className="flex items-start space-x-4">
+          <div className="md:flex items-start space-x-4">
             <div
               className={`px-4 py-2 rounded-full text-sm font-semibold ${
                 report.investment_recommendation.recommendation.includes(

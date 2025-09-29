@@ -152,7 +152,7 @@ const MarketIntelligence = ({ report }) => {
   return (
     <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-wrap items-center justify-between mb-8">
         <div>
           <h3 className="text-2xl font-bold text-gray-900">
             Market Intelligence & Competitive Analysis
@@ -179,7 +179,7 @@ const MarketIntelligence = ({ report }) => {
       </div>
 
       {/* Market Size Analysis */}
-      <div className="grid grid-cols-3 gap-8 mb-8">
+      <div className="grid md:grid-cols-3 gap-8 mb-8">
         <div className="col-span-2">
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-200">
             <h4 className="text-lg font-bold text-blue-900 mb-4 flex items-center">

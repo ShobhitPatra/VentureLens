@@ -116,7 +116,7 @@ const InvestmentScoreMatrix = ({ report }) => {
   return (
     <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-wrap items-center justify-between mb-8">
         <div>
           <h3 className="text-2xl font-bold text-gray-900">
             Investment Score Matrix
@@ -141,7 +141,7 @@ const InvestmentScoreMatrix = ({ report }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-3 gap-8">
         {/* Radar Chart */}
         <div className="col-span-2">
           <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-6 rounded-xl border border-slate-200">
@@ -216,7 +216,7 @@ const InvestmentScoreMatrix = ({ report }) => {
         <h4 className="text-lg font-bold text-gray-900 mb-6">
           Weighted Scoring Breakdown
         </h4>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-4">
           {radarData.map((metric, index) => (
             <WeightedScoreBar key={index} data={metric} />
           ))}

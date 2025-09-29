@@ -151,7 +151,7 @@ const FinancialProjections = ({ report }) => {
   return (
     <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-wrap items-center justify-between mb-8">
         <div>
           <h3 className="text-2xl font-bold text-gray-900">
             Financial Projections & Valuation Analysis
@@ -176,7 +176,7 @@ const FinancialProjections = ({ report }) => {
       </div>
 
       {/* Key Financial Metrics */}
-      <div className="grid grid-cols-4 gap-6 mb-8">
+      <div className="grid md:grid-cols-4 gap-6 mb-8">
         {keyMetrics.map((metric, index) => (
           <div
             key={index}
@@ -208,7 +208,7 @@ const FinancialProjections = ({ report }) => {
       </div>
 
       {/* Revenue Projections and Cash Flow */}
-      <div className="grid grid-cols-3 gap-8 mb-8">
+      <div className="grid md:grid-cols-3 gap-8 mb-8">
         <div className="col-span-2">
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-200">
             <h4 className="text-lg font-bold text-blue-900 mb-4 flex items-center">
@@ -280,7 +280,7 @@ const FinancialProjections = ({ report }) => {
       </div>
 
       {/* Valuation Scenarios */}
-      <div className="grid grid-cols-2 gap-8 mb-8">
+      <div className="grid md:grid-cols-2 gap-8 mb-8">
         <div className="bg-gradient-to-br from-purple-50 to-indigo-50 p-6 rounded-xl border border-purple-200">
           <h4 className="text-lg font-bold text-purple-900 mb-4 flex items-center">
             <DollarSign className="w-5 h-5 mr-2" />

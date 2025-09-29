@@ -7,7 +7,7 @@ interface currentUserI {
 }
 interface currentUserProps {
   currentUser: currentUserI | null;
-  setCurrentUser: (currentUser: currentUserI) => void;
+  setCurrentUser: (currentUser: currentUserI | null) => void;
 }
 
 export const useCurrentUser = create<currentUserProps>((set) => ({

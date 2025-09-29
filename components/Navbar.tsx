@@ -8,7 +8,7 @@ import { signOut } from "@/lib/auth-client";
 import { useCurrentUser } from "@/store/useCurrentUser";
 
 const Navbar = () => {
-  const { currentUser } = useCurrentUser();
+  const { currentUser, setCurrentUser } = useCurrentUser();
   return (
     <nav
       className="flex w-full items-center  text-primary font-medium shadow-sm md:px-64 py-2 font-mono border-b-1
@@ -106,7 +106,13 @@ const Navbar = () => {
             </summary>
             <ul className="bg-gray-100 menu dropdown-content rounded-box z-1 w-32  shadow-sm text-gray-800 ">
               <li>
-                <button onClick={() => signOut()} className="rounded-md">
+                <button
+                  onClick={() => {
+                    setCurrentUser(null);
+                    signOut();
+                  }}
+                  className="rounded-md"
+                >
                   Logout
                   <span>
                     <LogOut size={14} />
