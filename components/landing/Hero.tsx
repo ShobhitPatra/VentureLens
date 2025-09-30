@@ -23,7 +23,7 @@ const LOADING_MESSAGESS = {
   ],
   analyze_llmResponse: [
     "Scanning extracted content for business insights",
-    "Evaluating startup across 10+ venture metrics",
+    "Evaluating startup across venture metrics",
     "Finalizing VentureLens scorecard",
   ],
 };
@@ -149,7 +149,8 @@ const Hero = () => {
       {/* input  */}
 
       {isLoading ? (
-        <div className="flex flex-wrap justify-center gap-2 p-4">
+        <div className="flex flex-col items-center flex-wrap justify-center gap-2 p-4">
+          <h6>This usually takes upto 60 secs</h6>
           <h6 className="animate-pulse flex items-center gap-3 text-gray-800">
             {loadingMessage}
             <span>

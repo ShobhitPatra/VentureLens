@@ -40,15 +40,18 @@ const GetSartedPage = () => {
         <MarqueeList />
       </div>
       {user ? (
-        <div className="bg-background relative flex h-[800px] w-full flex-col items-center justify-center overflow-hidden rounded-lg ">
-          <p className="z-10 text-center text-3xl font-medium tracking-tighter whitespace-pre-wrap text-orange-500">
+        <div className="bg-background relative flex h-[800px] w-full items-center justify-center overflow-hidden rounded-lg gap-2">
+          <div className="z-10 text-center text-3xl font-medium tracking-tighter whitespace-pre-wrap text-orange-500">
             <span className="text-black">Already</span>
             <span className="text-orange-500"> a </span>
             <span className="text-black">User</span>
+          </div>
+          <div>
             <Link href="/" className="cursor-pointer">
               <ArrowUpRightFromSquare />
             </Link>
-          </p>
+          </div>
+
           <Ripple />
         </div>
       ) : (

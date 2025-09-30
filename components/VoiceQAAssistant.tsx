@@ -2,13 +2,16 @@
 import { useState, useEffect } from "react";
 import { Mic, MicOff, Volume2, Loader2, MessageCircle, X } from "lucide-react";
 
-// TypeScript interfaces
 interface ConversationMessage {
   type: "user" | "assistant";
   text: string;
   timestamp: Date;
 }
-
+interface VapiClient {
+  start: (config: Record<string, unknown>) => Promise<void>;
+  stop: () => void;
+  on: (event: string, callback: (...args: unknown[]) => void) => void;
+}
 const VoiceQAAssistant = ({ report }) => {
   const [isListening, setIsListening] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
@@ -17,7 +20,7 @@ const VoiceQAAssistant = ({ report }) => {
   const [currentQuestion, setCurrentQuestion] = useState("");
   const [currentAnswer, setCurrentAnswer] = useState("");
   const [conversation, setConversation] = useState<ConversationMessage[]>([]);
-  const [vapiClient, setVapiClient] = useState<any>(null); // Vapi type
+  const [vapiClient, setVapiClient] = useState<VapiClient | null>(null); // Vapi type
   const [error, setError] = useState<string | null>(null);
 
   // Initialize VAPI
