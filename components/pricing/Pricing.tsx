@@ -88,6 +88,7 @@ const PricingCards = () => {
           </div>
         ))}
       </div>
+      <p>VentureLens is completely free for now</p>
     </div>
   );
 };

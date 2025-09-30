@@ -418,7 +418,7 @@ IMPORTANT: Do NOT copy example numbers. You must compute all numeric values (sco
     "Technology innovation and IP protection strategy needs development"
   ],
   "investment_recommendation": {
-    "summary": "Promising early-stage startup with solid fundamentals but needs refinement in competitive positioning and go-to-market execution before full investment commitment.",
+    "summary": "Promising early-stage startup with solid fundamentals but needs refinement in competitive positioning and go-to-market execution before full investment commitment.note:Do not return the name of the startup",
     "recommendation": "Proceed with Due Diligence",
     "risk_level": "Medium-High",
     "funding_stage_fit": "Series A (conditional)",

@@ -8,8 +8,18 @@ import {
   Target,
   BarChart3,
 } from "lucide-react";
+import { ShimmerButton } from "../../ui/shimmer-button";
 
 const ExecutiveSummary = ({ report }) => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
   const getScoreColor = (score: number) => {
     if (score >= 8) return "text-emerald-600";
     if (score >= 6.5) return "text-amber-600";
@@ -49,8 +59,14 @@ const ExecutiveSummary = ({ report }) => {
             {report.analysis_date}
           </p>
         </div>
+
         <div className="flex items-center  space-x-6">
-          <div className="text-right">
+          <div className="text-right space-y-1">
+            <ShimmerButton
+              onClick={() => scrollToSection("voice-qa-assistant")}
+            >
+              Ask AI Expert
+            </ShimmerButton>
             <div className="text-sm font-medium text-slate-500 uppercase tracking-wider">
               Confidence Level
             </div>

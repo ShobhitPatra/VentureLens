@@ -22,4 +22,8 @@ export const auth = betterAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     },
   },
+  trustedOrigins: [
+    "https://084c19772632.ngrok-free.app",
+    "http://localhost:300",
+  ],
 });

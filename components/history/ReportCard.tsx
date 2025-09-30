@@ -44,7 +44,7 @@ const ReportCard = ({
         <div className="">
           <button
             onClick={handleViewDetails}
-            className="text-blue-500 hover:text-blue-700 text-sm"
+            className="text-blue-500 hover:text-blue-700 text-sm cursor-pointer"
           >
             View Details
           </button>

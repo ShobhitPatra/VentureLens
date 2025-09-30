@@ -9,23 +9,22 @@ import { ShinyButton } from "./ui/shiny-button";
 import { signIn } from "@/lib/auth-client";
 import { useAuthWithConvex } from "@/hooks/useWithConvex";
 import { Ripple } from "./ui/ripple";
+import { TypingAnimation } from "./ui/typing-animation";
 
 const GetSartedPage = () => {
   const { user } = useAuthWithConvex();
   return (
     <div className="h-screen font-mono flex flex-col items-center justify-center pt-16 gap-8 md:px-64">
       <div className="text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="flex"
-        >
-          <div className="md:text-6xl text-3xl font-bold ">VENTURE</div>
-          <div className="md:text-6xl text-3xl font-bold text-orange-500">
+        <div className="flex">
+          <TypingAnimation className="md:text-6xl text-3xl font-bold ">
+            VENTURE
+          </TypingAnimation>
+          <TypingAnimation className="md:text-6xl text-3xl font-bold text-orange-500">
             LENS
-          </div>
-        </motion.div>
+          </TypingAnimation>
+        </div>
+
         <AnimatedShinyText className="md:text-2xl text-xl text-gray-400">
           See Startups Clearly
         </AnimatedShinyText>

@@ -291,7 +291,7 @@ Now answer user questions naturally using the full report data above!`,
                 ? "bg-gradient-to-br from-amber-500 to-orange-600 shadow-2xl shadow-amber-300"
                 : isListening
                 ? "bg-gradient-to-br from-red-500 to-red-600 shadow-2xl shadow-red-300"
-                : "bg-gradient-to-br from-red-500 to-orange-400 shadow-xl shadow-purple-300"
+                : "bg-gradient-to-br from-indigo-500 to-blue-400 shadow-xl shadow-indigo-300"
             } ${
               isInitializing || !vapiClient || isConnecting ? "cursor-wait" : ""
             }`}
