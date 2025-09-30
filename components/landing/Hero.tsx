@@ -120,6 +120,7 @@ const Hero = () => {
       }
       const report = await analyzeContent(markdownContent);
       if (!report) {
+        setReport(null);
         return;
       }
       setReport(report);
