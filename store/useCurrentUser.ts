@@ -1,10 +1,21 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-export const useCurrentUser = create(
+interface User {
+  email: string;
+  name?: string;
+  image?: string;
+}
+
+interface CurrentUserStore {
+  currentUser: User | null;
+  setCurrentUser: (user: User | null) => void;
+}
+
+export const useCurrentUser = create<CurrentUserStore>()(
   persist(
     (set) => ({
-      currentUer: null,
+      currentUser: null, // Fixed typo: was "currentUer"
       setCurrentUser: (currentUser) => set({ currentUser }),
     }),
     {

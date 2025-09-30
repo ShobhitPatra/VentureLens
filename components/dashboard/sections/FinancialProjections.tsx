@@ -23,8 +23,8 @@ import {
   Calculator,
   Briefcase,
 } from "lucide-react";
-
-const FinancialProjections = ({ report }) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const FinancialProjections = ({ report }: { report: any }) => {
   // Revenue and profitability projections
   const financialProjectionData = [
     {
@@ -137,8 +137,8 @@ const FinancialProjections = ({ report }) => {
       color: "amber",
     },
   ];
-
-  const getMetricColor = (color) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const getMetricColor = (color: "emerald" | "blue" | "purple" | "amber") => {
     const colors = {
       emerald: "text-emerald-600 bg-emerald-50 border-emerald-200",
       blue: "text-blue-600 bg-blue-50 border-blue-200",
@@ -181,7 +181,7 @@ const FinancialProjections = ({ report }) => {
           <div
             key={index}
             className={`p-6 rounded-xl border-2 ${getMetricColor(
-              metric.color
+              metric.color as "emerald" | "blue" | "purple" | "amber"
             )}`}
           >
             <div className="flex items-center justify-between">

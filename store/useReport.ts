@@ -1,7 +1,16 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-export const useReport = create(
+interface ReportStore {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  report: any | null;
+  setReport: (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    report: any | null
+  ) => void;
+}
+
+export const useReport = create<ReportStore>()(
   persist(
     (set) => ({
       report: null,

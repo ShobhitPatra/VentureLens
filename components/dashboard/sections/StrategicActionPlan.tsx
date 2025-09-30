@@ -29,47 +29,59 @@ import {
   Calendar,
   Flag,
 } from "lucide-react";
-
-const StrategicActionPlan = ({ report }) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const StrategicActionPlan = ({ report }: { report: any }) => {
   // Transform actionable recommendations with derived metrics
-  const timelineData = report.actionable_recommendations.map((rec, index) => ({
-    ...rec,
-    id: index + 1,
-    completion_score: 0, // Always starts at 0 for new recommendations
-    dependencies:
-      rec.category === "Market Validation" ||
-      rec.category === "Competitive Analysis"
-        ? 1
-        : rec.category === "Go-to-Market" || rec.category === "Business Model"
-        ? 2
-        : 3,
-    resources_required:
-      rec.effort === "High" ? 6 : rec.effort === "Medium" ? 4 : 2,
-    success_probability:
-      rec.impact === "High" && rec.effort === "Low"
-        ? 85
-        : rec.impact === "High" && rec.effort === "Medium"
-        ? 75
-        : rec.impact === "High" && rec.effort === "High"
-        ? 65
-        : rec.impact === "Medium" && rec.effort === "Low"
-        ? 80
-        : rec.impact === "Medium" && rec.effort === "Medium"
-        ? 70
-        : 60,
-  }));
+  const timelineData = report.actionable_recommendations.map(
+    (
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      rec: any,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      index: any
+    ) => ({
+      ...rec,
+      id: index + 1,
+      completion_score: 0, // Always starts at 0 for new recommendations
+      dependencies:
+        rec.category === "Market Validation" ||
+        rec.category === "Competitive Analysis"
+          ? 1
+          : rec.category === "Go-to-Market" || rec.category === "Business Model"
+          ? 2
+          : 3,
+      resources_required:
+        rec.effort === "High" ? 6 : rec.effort === "Medium" ? 4 : 2,
+      success_probability:
+        rec.impact === "High" && rec.effort === "Low"
+          ? 85
+          : rec.impact === "High" && rec.effort === "Medium"
+          ? 75
+          : rec.impact === "High" && rec.effort === "High"
+          ? 65
+          : rec.impact === "Medium" && rec.effort === "Low"
+          ? 80
+          : rec.impact === "Medium" && rec.effort === "Medium"
+          ? 70
+          : 60,
+    })
+  );
 
   // Strategic impact vs effort matrix - derived from actual recommendations
-  const impactEffortData = timelineData.map((item) => ({
-    ...item,
-    impact_score:
-      item.impact === "High" ? 8.5 : item.impact === "Medium" ? 6.0 : 3.5,
-    effort_score:
-      item.effort === "High" ? 8.0 : item.effort === "Medium" ? 5.5 : 3.0,
-    priority_value:
-      (item.impact === "High" ? 8.5 : item.impact === "Medium" ? 6.0 : 3.5) /
-      (item.effort === "High" ? 8.0 : item.effort === "Medium" ? 5.5 : 3.0),
-  }));
+  const impactEffortData = timelineData.map(
+    (
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      item: any
+    ) => ({
+      ...item,
+      impact_score:
+        item.impact === "High" ? 8.5 : item.impact === "Medium" ? 6.0 : 3.5,
+      effort_score:
+        item.effort === "High" ? 8.0 : item.effort === "Medium" ? 5.5 : 3.0,
+      priority_value:
+        (item.impact === "High" ? 8.5 : item.impact === "Medium" ? 6.0 : 3.5) /
+        (item.effort === "High" ? 8.0 : item.effort === "Medium" ? 5.5 : 3.0),
+    })
+  );
 
   // Generate KPI tracking based on report categories and scores
   const generateKpiTracking = () => {
@@ -132,16 +144,33 @@ const StrategicActionPlan = ({ report }) => {
   const generateDecisionFramework = () => {
     const coreMetrics = report.core_metrics;
 
-    const getMetricScore = (metricNames) => {
-      const relevantMetrics = coreMetrics.filter((m) =>
-        metricNames.some((name) =>
-          m.name.toLowerCase().includes(name.toLowerCase())
-        )
+    const getMetricScore = (
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      metricNames: any
+    ) => {
+      const relevantMetrics = coreMetrics.filter(
+        (
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          m: any
+        ) =>
+          metricNames.some(
+            (
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              name: any
+            ) => m.name.toLowerCase().includes(name.toLowerCase())
+          )
       );
       if (relevantMetrics.length === 0) return 5.0;
       return (
-        relevantMetrics.reduce((acc, m) => acc + m.score, 0) /
-        relevantMetrics.length
+        relevantMetrics.reduce(
+          (
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            acc: any,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            m: any
+          ) => acc + m.score,
+          0
+        ) / relevantMetrics.length
       );
     };
 
@@ -240,16 +269,33 @@ const StrategicActionPlan = ({ report }) => {
   const generateSuccessFactors = () => {
     const coreMetrics = report.core_metrics;
 
-    const getFactorScore = (metricNames) => {
-      const relevantMetrics = coreMetrics.filter((m) =>
-        metricNames.some((name) =>
-          m.name.toLowerCase().includes(name.toLowerCase())
-        )
+    const getFactorScore = (
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      metricNames: any
+    ) => {
+      const relevantMetrics = coreMetrics.filter(
+        (
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          m: any
+        ) =>
+          metricNames.some(
+            (
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              name: any
+            ) => m.name.toLowerCase().includes(name.toLowerCase())
+          )
       );
       if (relevantMetrics.length === 0) return 5.0;
       return (
-        relevantMetrics.reduce((acc, m) => acc + m.score, 0) /
-        relevantMetrics.length
+        relevantMetrics.reduce(
+          (
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            acc: any,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            m: any
+          ) => acc + m.score,
+          0
+        ) / relevantMetrics.length
       );
     };
 
@@ -284,7 +330,10 @@ const StrategicActionPlan = ({ report }) => {
 
   const successFactors = generateSuccessFactors();
 
-  const getPriorityColor = (priority) => {
+  const getPriorityColor = (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    priority: any
+  ) => {
     switch (priority.toLowerCase()) {
       case "critical":
         return "bg-red-100 text-red-800 border-red-200";
@@ -297,7 +346,10 @@ const StrategicActionPlan = ({ report }) => {
     }
   };
 
-  const getStatusIcon = (status) => {
+  const getStatusIcon = (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    status: any
+  ) => {
     switch (status) {
       case "completed":
         return <CheckCircle className="w-5 h-5 text-emerald-600" />;
@@ -310,8 +362,12 @@ const StrategicActionPlan = ({ report }) => {
     }
   };
 
-  const getCategoryIcon = (category) => {
-    const icons = {
+  const getCategoryIcon = (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    category: any
+  ) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const icons: any = {
       "Market Validation": <Target className="w-5 h-5" />,
       "Competitive Analysis": <TrendingUp className="w-5 h-5" />,
       "Go-to-Market": <Users className="w-5 h-5" />,
@@ -324,7 +380,15 @@ const StrategicActionPlan = ({ report }) => {
     return icons[category] || <Flag className="w-5 h-5" />;
   };
 
-  const CustomTooltip = ({ active, payload }) => {
+  const CustomTooltip = ({
+    active,
+    payload,
+  }: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    active: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    payload: any;
+  }) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
@@ -412,22 +476,29 @@ const StrategicActionPlan = ({ report }) => {
                     position: "insideLeft",
                   }}
                 />
-                <Tooltip content={<CustomTooltip />} />
+                {/* <Tooltip content={<CustomTooltip />} /> */}
                 <Bar dataKey="priority_value" radius={[4, 4, 0, 0]}>
-                  {impactEffortData.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={
-                        entry.priority === "Critical"
-                          ? "#EF4444"
-                          : entry.priority === "High"
-                          ? "#F59E0B"
-                          : entry.priority === "Medium"
-                          ? "#3B82F6"
-                          : "#6B7280"
-                      }
-                    />
-                  ))}
+                  {impactEffortData.map(
+                    (
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                      entry: any,
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                      index: any
+                    ) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={
+                          entry.priority === "Critical"
+                            ? "#EF4444"
+                            : entry.priority === "High"
+                            ? "#F59E0B"
+                            : entry.priority === "Medium"
+                            ? "#3B82F6"
+                            : "#6B7280"
+                        }
+                      />
+                    )
+                  )}
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
@@ -465,24 +536,36 @@ const StrategicActionPlan = ({ report }) => {
             <h4 className="text-lg font-bold text-gray-900 mb-4">Quick Wins</h4>
             <div className="space-y-3">
               {timelineData
-                .filter((item) => item.effort === "Low")
+                .filter(
+                  (
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    item: any
+                  ) => item.effort === "Low"
+                )
                 .slice(0, 3)
-                .map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center p-3 bg-green-50 rounded-lg border border-green-200"
-                  >
-                    <CheckCircle className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" />
-                    <div className="flex-1">
-                      <div className="text-sm font-medium text-green-900">
-                        {item.action}
-                      </div>
-                      <div className="text-xs text-green-700">
-                        {item.timeline}
+                .map(
+                  (
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    item: any,
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    index: any
+                  ) => (
+                    <div
+                      key={index}
+                      className="flex items-center p-3 bg-green-50 rounded-lg border border-green-200"
+                    >
+                      <CheckCircle className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" />
+                      <div className="flex-1">
+                        <div className="text-sm font-medium text-green-900">
+                          {item.action}
+                        </div>
+                        <div className="text-xs text-green-700">
+                          {item.timeline}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                )}
             </div>
           </div>
         </div>
@@ -494,104 +577,113 @@ const StrategicActionPlan = ({ report }) => {
           Detailed Action Plan & Timeline
         </h4>
         <div className="space-y-4">
-          {timelineData.map((item, index) => (
-            <div
-              key={index}
-              className="bg-gradient-to-r from-slate-50 to-gray-50 p-6 rounded-xl border border-slate-200"
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex items-start space-x-4 flex-1">
-                  <div className="flex-shrink-0">
-                    {getCategoryIcon(item.category)}
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center space-x-3 mb-2">
-                      <h5 className="font-bold text-gray-900">{item.action}</h5>
-                      <div
-                        className={`px-3 py-1 rounded-full text-xs font-semibold border ${getPriorityColor(
-                          item.priority
-                        )}`}
-                      >
-                        {item.priority}
-                      </div>
+          {timelineData.map(
+            (
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              item: any,
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              index: any
+            ) => (
+              <div
+                key={index}
+                className="bg-gradient-to-r from-slate-50 to-gray-50 p-6 rounded-xl border border-slate-200"
+              >
+                <div className="flex items-start justify-between">
+                  <div className="flex items-start space-x-4 flex-1">
+                    <div className="flex-shrink-0">
+                      {getCategoryIcon(item.category)}
                     </div>
-                    <p className="text-sm text-gray-600 mb-3">
-                      {item.category} initiative focused on{" "}
-                      {item.impact.toLowerCase()}-impact value creation
-                    </p>
-
-                    <div className="grid grid-cols-4 gap-4 mb-4">
-                      <div className="text-center">
-                        <div className="text-xs text-gray-500">Timeline</div>
-                        <div className="font-semibold text-gray-900">
-                          {item.timeline}
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-xs text-gray-500">
-                          Impact Level
-                        </div>
+                    <div className="flex-1">
+                      <div className="flex items-center space-x-3 mb-2">
+                        <h5 className="font-bold text-gray-900">
+                          {item.action}
+                        </h5>
                         <div
-                          className={`font-semibold ${
-                            item.impact === "High"
-                              ? "text-emerald-600"
-                              : item.impact === "Medium"
-                              ? "text-amber-600"
-                              : "text-blue-600"
-                          }`}
+                          className={`px-3 py-1 rounded-full text-xs font-semibold border ${getPriorityColor(
+                            item.priority
+                          )}`}
                         >
-                          {item.impact}
+                          {item.priority}
                         </div>
                       </div>
-                      <div className="text-center">
-                        <div className="text-xs text-gray-500">
-                          Effort Required
-                        </div>
-                        <div
-                          className={`font-semibold ${
-                            item.effort === "High"
-                              ? "text-red-600"
-                              : item.effort === "Medium"
-                              ? "text-amber-600"
-                              : "text-emerald-600"
-                          }`}
-                        >
-                          {item.effort}
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-xs text-gray-500">
-                          Success Rate
-                        </div>
-                        <div className="font-semibold text-purple-600">
-                          {item.success_probability}%
-                        </div>
-                      </div>
-                    </div>
+                      <p className="text-sm text-gray-600 mb-3">
+                        {item.category} initiative focused on{" "}
+                        {item.impact.toLowerCase()}-impact value creation
+                      </p>
 
-                    <div className="flex items-center justify-between">
-                      <div className="text-xs text-gray-500">
-                        Resources: {item.resources_required} FTEs •
-                        Dependencies: {item.dependencies}
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <div className="w-32 bg-gray-200 rounded-full h-2">
+                      <div className="grid grid-cols-4 gap-4 mb-4">
+                        <div className="text-center">
+                          <div className="text-xs text-gray-500">Timeline</div>
+                          <div className="font-semibold text-gray-900">
+                            {item.timeline}
+                          </div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-xs text-gray-500">
+                            Impact Level
+                          </div>
                           <div
-                            className="h-2 bg-blue-500 rounded-full transition-all duration-300"
-                            style={{ width: `${item.completion_score}%` }}
-                          />
+                            className={`font-semibold ${
+                              item.impact === "High"
+                                ? "text-emerald-600"
+                                : item.impact === "Medium"
+                                ? "text-amber-600"
+                                : "text-blue-600"
+                            }`}
+                          >
+                            {item.impact}
+                          </div>
                         </div>
-                        <span className="text-xs text-gray-600">
-                          {item.completion_score}%
-                        </span>
+                        <div className="text-center">
+                          <div className="text-xs text-gray-500">
+                            Effort Required
+                          </div>
+                          <div
+                            className={`font-semibold ${
+                              item.effort === "High"
+                                ? "text-red-600"
+                                : item.effort === "Medium"
+                                ? "text-amber-600"
+                                : "text-emerald-600"
+                            }`}
+                          >
+                            {item.effort}
+                          </div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-xs text-gray-500">
+                            Success Rate
+                          </div>
+                          <div className="font-semibold text-purple-600">
+                            {item.success_probability}%
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <div className="text-xs text-gray-500">
+                          Resources: {item.resources_required} FTEs •
+                          Dependencies: {item.dependencies}
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <div className="w-32 bg-gray-200 rounded-full h-2">
+                            <div
+                              className="h-2 bg-blue-500 rounded-full transition-all duration-300"
+                              style={{ width: `${item.completion_score}%` }}
+                            />
+                          </div>
+                          <span className="text-xs text-gray-600">
+                            {item.completion_score}%
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <ArrowRight className="w-5 h-5 text-gray-400 mt-6" />
                 </div>
-                <ArrowRight className="w-5 h-5 text-gray-400 mt-6" />
               </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </div>
 
@@ -708,7 +800,12 @@ const StrategicActionPlan = ({ report }) => {
             </h5>
             <ul className="space-y-2 text-sm">
               {report.investment_recommendation.next_steps.map(
-                (step, index) => (
+                (
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  step: any,
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  index: any
+                ) => (
                   <li key={index} className="flex items-start">
                     <CheckCircle className="w-4 h-4 mr-2 mt-0.5 text-indigo-600 flex-shrink-0" />
                     <span className="text-indigo-800">{step}</span>

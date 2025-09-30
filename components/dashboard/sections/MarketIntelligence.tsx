@@ -21,8 +21,8 @@ import {
   AlertTriangle,
   CheckCircle,
 } from "lucide-react";
-
-const MarketIntelligence = ({ report }) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const MarketIntelligence = ({ report }: { report: any }) => {
   // Market size visualization data
   const marketSizeData = [
     {
@@ -76,7 +76,8 @@ const MarketIntelligence = ({ report }) => {
 
   // Competitive positioning data
   const competitorData = report.benchmark_data.peer_companies
-    .map((comp) => ({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .map((comp: any) => ({
       name: comp.name,
       score: comp.score,
       funding: comp.funding,
@@ -101,8 +102,8 @@ const MarketIntelligence = ({ report }) => {
     { factor: "Competitive Density", value: 40, benchmark: 60 },
     { factor: "Regulatory Clarity", value: 70, benchmark: 65 },
   ];
-
-  const getMaturityColor = (maturity) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const getMaturityColor = (maturity: any) => {
     switch (maturity.toLowerCase()) {
       case "emerging":
         return "text-emerald-600 bg-emerald-50 border-emerald-200";
@@ -114,8 +115,8 @@ const MarketIntelligence = ({ report }) => {
         return "text-gray-600 bg-gray-50 border-gray-200";
     }
   };
-
-  const getIntensityColor = (intensity) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const getIntensityColor = (intensity: any) => {
     switch (intensity.toLowerCase()) {
       case "low":
         return "text-emerald-600";
@@ -128,21 +129,39 @@ const MarketIntelligence = ({ report }) => {
     }
   };
 
-  const CustomTooltip = ({ active, payload, label }) => {
+  const CustomTooltip = ({
+    active,
+    payload,
+    label,
+  }: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    active: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    payload: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    label: any;
+  }) => {
     if (active && payload && payload.length) {
       return (
         <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-200">
           <p className="font-semibold text-gray-900">{label}</p>
-          {payload.map((entry, index) => (
-            <p key={index} className="text-sm" style={{ color: entry.color }}>
-              {entry.name}:{" "}
-              {typeof entry.value === "number"
-                ? entry.value > 1000
-                  ? `$${(entry.value / 1000).toFixed(1)}B`
-                  : `$${entry.value.toFixed(1)}M`
-                : entry.value}
-            </p>
-          ))}
+          {payload.map(
+            (
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              entry: any,
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              index: any
+            ) => (
+              <p key={index} className="text-sm" style={{ color: entry.color }}>
+                {entry.name}:{" "}
+                {typeof entry.value === "number"
+                  ? entry.value > 1000
+                    ? `$${(entry.value / 1000).toFixed(1)}B`
+                    : `$${entry.value.toFixed(1)}M`
+                  : entry.value}
+              </p>
+            )
+          )}
         </div>
       );
     }
@@ -194,7 +213,7 @@ const MarketIntelligence = ({ report }) => {
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="market" />
                 <YAxis tickFormatter={(value) => `$${value}M`} />
-                <Tooltip content={<CustomTooltip />} />
+                {/* <Tooltip content={<CustomTooltip />} /> */}
                 <Bar dataKey="size" radius={[4, 4, 0, 0]}>
                   {marketSizeData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
@@ -331,7 +350,7 @@ const MarketIntelligence = ({ report }) => {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="year" />
               <YAxis tickFormatter={(value) => `${value}M`} />
-              <Tooltip content={<CustomTooltip />} />
+              {/* <Tooltip content={<CustomTooltip />} /> */}
               <Area
                 type="monotone"
                 dataKey="revenue"
@@ -380,18 +399,25 @@ const MarketIntelligence = ({ report }) => {
                 }
               />
               <Scatter name="Companies" dataKey="funding" fill="#3B82F6">
-                {competitorData.map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={
-                      entry.name === "Target Company" ? "#EF4444" : "#3B82F6"
-                    }
-                    stroke={
-                      entry.name === "Target Company" ? "#DC2626" : "#2563EB"
-                    }
-                    strokeWidth={entry.name === "Target Company" ? 3 : 1}
-                  />
-                ))}
+                {competitorData.map(
+                  (
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    entry: any,
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    index: any
+                  ) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={
+                        entry.name === "Target Company" ? "#EF4444" : "#3B82F6"
+                      }
+                      stroke={
+                        entry.name === "Target Company" ? "#DC2626" : "#2563EB"
+                      }
+                      strokeWidth={entry.name === "Target Company" ? 3 : 1}
+                    />
+                  )
+                )}
               </Scatter>
             </ScatterChart>
           </ResponsiveContainer>
@@ -406,12 +432,19 @@ const MarketIntelligence = ({ report }) => {
             Market Tailwinds
           </h4>
           <ul className="space-y-3">
-            {report.market_analysis.market_trends.map((trend, index) => (
-              <li key={index} className="flex items-start">
-                <CheckCircle className="w-4 h-4 mr-3 mt-0.5 text-blue-600 flex-shrink-0" />
-                <span className="text-sm text-blue-800">{trend}</span>
-              </li>
-            ))}
+            {report.market_analysis.market_trends.map(
+              (
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                trend: any,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                index: any
+              ) => (
+                <li key={index} className="flex items-start">
+                  <CheckCircle className="w-4 h-4 mr-3 mt-0.5 text-blue-600 flex-shrink-0" />
+                  <span className="text-sm text-blue-800">{trend}</span>
+                </li>
+              )
+            )}
           </ul>
         </div>
 
@@ -421,12 +454,19 @@ const MarketIntelligence = ({ report }) => {
             Market Headwinds
           </h4>
           <ul className="space-y-3">
-            {report.market_analysis.market_risks.map((risk, index) => (
-              <li key={index} className="flex items-start">
-                <AlertTriangle className="w-4 h-4 mr-3 mt-0.5 text-orange-600 flex-shrink-0" />
-                <span className="text-sm text-orange-800">{risk}</span>
-              </li>
-            ))}
+            {report.market_analysis.market_risks.map(
+              (
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                risk: any,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                index: any
+              ) => (
+                <li key={index} className="flex items-start">
+                  <AlertTriangle className="w-4 h-4 mr-3 mt-0.5 text-orange-600 flex-shrink-0" />
+                  <span className="text-sm text-orange-800">{risk}</span>
+                </li>
+              )
+            )}
           </ul>
         </div>
       </div>

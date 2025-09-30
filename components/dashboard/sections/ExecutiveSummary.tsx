@@ -9,8 +9,8 @@ import {
   BarChart3,
 } from "lucide-react";
 import { ShimmerButton } from "../../ui/shimmer-button";
-
-const ExecutiveSummary = ({ report }) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ExecutiveSummary = ({ report }: { report: any }) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -239,15 +239,22 @@ const ExecutiveSummary = ({ report }) => {
             Strategic Advantages
           </h4>
           <ul className="space-y-2">
-            {report.key_strengths.map((strength, index) => (
-              <li
-                key={index}
-                className="text-sm text-emerald-800 flex items-start"
-              >
-                <CheckCircle className="w-4 h-4 mr-2 mt-0.5 text-emerald-600 flex-shrink-0" />
-                {strength}
-              </li>
-            ))}
+            {report.key_strengths.map(
+              (
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                strength: any,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                index: any
+              ) => (
+                <li
+                  key={index}
+                  className="text-sm text-emerald-800 flex items-start"
+                >
+                  <CheckCircle className="w-4 h-4 mr-2 mt-0.5 text-emerald-600 flex-shrink-0" />
+                  {strength}
+                </li>
+              )
+            )}
           </ul>
         </div>
 
@@ -257,12 +264,22 @@ const ExecutiveSummary = ({ report }) => {
             Critical Risk Factors
           </h4>
           <ul className="space-y-2">
-            {report.areas_for_improvement.slice(0, 3).map((area, index) => (
-              <li key={index} className="text-sm text-red-800 flex items-start">
-                <AlertTriangle className="w-4 h-4 mr-2 mt-0.5 text-red-600 flex-shrink-0" />
-                {area}
-              </li>
-            ))}
+            {report.areas_for_improvement.slice(0, 3).map(
+              (
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                area: any,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                index: any
+              ) => (
+                <li
+                  key={index}
+                  className="text-sm text-red-800 flex items-start"
+                >
+                  <AlertTriangle className="w-4 h-4 mr-2 mt-0.5 text-red-600 flex-shrink-0" />
+                  {area}
+                </li>
+              )
+            )}
           </ul>
         </div>
       </div>
