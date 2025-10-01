@@ -196,12 +196,12 @@ A: "The ${report.overall_score} reflects ${
                   .map((m: any) => m.name)[0] || "competitive positioning"
               } needs significant work."
 
-Q: "Should I invest?"
-A: "With ${report.risk_level.toLowerCase()} risk and a ${
-                report.overall_score
-              } score, my recommendation is: ${
-                report.investment_recommendation.summary
-              } The decision comes down to whether you're comfortable with ${report.areas_for_improvement[0].toLowerCase()}."
+  Q: "Should I invest?"
+  A: "With ${report.risk_level.toLowerCase()} risk and a ${
+                  report.overall_score
+                } score, my recommendation is: ${
+                  report.investment_recommendation.summary
+                } The decision comes down to whether you're comfortable with ${report.areas_for_improvement[0].toLowerCase()}."
 
 Q: "What are the biggest risks?"
 A: "The top three risks are: ${report.areas_for_improvement
